@@ -20,7 +20,7 @@ test.describe("TodoMVC testing", async () => {
     textInp.fill("test 2");
     textInp.press("Enter");
 
-    await page.getByRole("checkbox").check();
+    await page.getByRole("checkbox", { name: "Toggle Todo" }).check();
 
     await expect(page.locator(".todo-list li")).not.toHaveClass(/editing/);
     await expect(page.locator(".todo-list li")).toHaveClass(/completed/);
